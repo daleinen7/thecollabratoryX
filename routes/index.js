@@ -2,15 +2,19 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const User = require('../models/user')
+const Set = require('../models/set')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  // console.log(user);
-  res.render('index', { 
-    title: 'Homepage for The Collabratory',
-    user: req.user,
-    name: req.query.name
-  });
+  Set.find({}, function(err, sets) {
+    console.log(req.user);
+    res.render('index', { 
+      title: 'Homepage for The Collabratory',
+      user: req.user,
+      name: req.query.name,
+      sets
+    })
+  })  
 });
 
 // Google OAuth login route

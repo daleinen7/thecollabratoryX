@@ -10,6 +10,7 @@ const entrySchema = new Schema({
 });
 
 const setSchema = new Schema({
+  title: {type: String, required: true},
   entries: [entrySchema],
   popularity: Number,
   createdBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
@@ -18,4 +19,4 @@ const setSchema = new Schema({
   timestamps: true
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('Set', setSchema);
