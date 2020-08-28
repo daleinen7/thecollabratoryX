@@ -21,8 +21,7 @@ function create(req, res) {
   const set = new Set(req.body);
   set.save(function(err) {
     if (err) return res.redirect('/sets/new');
-    // <--------------------------- UPDATE TO /sets/:id/edit
-    res.redirect('/');
+    res.redirect(`/set/${set._id}`);
   });
 }
 

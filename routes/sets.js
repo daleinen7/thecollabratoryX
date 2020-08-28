@@ -4,6 +4,6 @@ const setsCtrl = require('../controllers/sets');
 
 router.get('/new', setsCtrl.new);
 router.post('/', setsCtrl.create);
-router.get('/sets/:id', setsCtrl.show);
+router.get('/:id', setsCtrl.show);
 
 module.exports = router;
