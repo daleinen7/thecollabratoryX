@@ -27,6 +27,7 @@ function create(req, res) {
 
 function show(req, res) {
   Set.findById(req.params.id, function(err, set) {
+    console.log(set);
     res.render('sets/show', {title: `The Collabratory | ${set.title}`, set});
   });
 }

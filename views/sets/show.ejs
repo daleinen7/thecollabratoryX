@@ -1,5 +1,26 @@
 <%- include('../partials/header') %>
 <main>
-  <h2><%= set.title %></h2>
+  <form action="/sets/<%= set._id %>/entries" method="post">
+    <h2><%= set.title %></h2>
+    <% if (user) { %>
+      <label>Category
+        <select name="category">
+          <option value="instrument">Instrument</option>
+          <option value="effect">Effect</option>
+          <option value="role">Role</option>
+          <option value="universal">Universal</option>
+        </select>
+      </label>
+      <label>
+        <textarea name="description" id="" cols="30" rows="4"></textarea>
+      </label>
+      <input type="submit" value="Add Entry">
+    </form>
+    <% } %>
+
+    <% set.entries.forEach(entry => { %>
+        <h3><%= entry.category %></h3>
+        <p><%= entry.description %> </p>
+    <% }) %>
 </main>
 <%- include('../partials/footer') %>

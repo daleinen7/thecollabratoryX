@@ -7,7 +7,6 @@ const Set = require('../models/set')
 /* GET home page. */
 router.get('/', function(req, res, next) {
   Set.find({}, function(err, sets) {
-    console.log(req.user);
     res.render('index', { 
       title: 'Homepage for The Collabratory',
       user: req.user,
