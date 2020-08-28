@@ -13,8 +13,7 @@ const setSchema = new Schema({
   title: {type: String, required: true},
   entries: [entrySchema],
   popularity: Number,
-  createdBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
-  followedSets: [{type: mongoose.Schema.Types.ObjectId, ref: "Set"}]
+  createdBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}]
 }, {
   timestamps: true
 });

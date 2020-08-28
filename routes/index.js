@@ -6,14 +6,23 @@ const Set = require('../models/set')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  Set.find({}, function(err, sets) {
-    res.render('index', { 
-      title: 'Homepage for The Collabratory',
-      user: req.user,
-      name: req.query.name,
-      sets
-    })
-  })  
+  // If the user is logged in show their followed sets
+  if (req.user) {
+    Set.find({}, function(err, sets) {
+      res.render('index', { 
+        title: 'Homepage for The Collabratory',
+        sets
+      })
+    }) 
+  } else {
+    // Otherwise show all sets
+    Set.find({}, function(err, sets) {
+      res.render('index', { 
+        title: 'Homepage for The Collabratory',
+        sets
+      })
+    })  
+  }
 });
 
 // Google OAuth login route

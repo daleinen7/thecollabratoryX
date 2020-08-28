@@ -16,11 +16,15 @@
       </label>
       <input type="submit" value="Add Entry">
     </form>
+
+
+    
     <% } %>
 
     <% set.entries.forEach(entry => { %>
         <h3><%= entry.category %></h3>
         <p><%= entry.description %> </p>
     <% }) %>
+
 </main>
 <%- include('../partials/footer') %>

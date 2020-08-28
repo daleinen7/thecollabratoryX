@@ -19,15 +19,21 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
   const set = new Set(req.body);
-  set.save(function(err) {
-    if (err) return res.redirect('/sets/new');
-    res.redirect(`/set/${set._id}`);
-  });
+  set.createdBy = req.params._id;
+  set.popularity = 1;
+  console.log("set id: ", set._id);
+  req.user.followedSets.push(set._id);
+  console.log(req.user.name + '.followedSets: ', req.user.followedSets);
+  req.user.save(function(err){
+    set.save(function(err) {
+      if (err) return res.redirect('/sets/new');
+      res.redirect(`/sets/${set._id}`);
+    });
+  })
 }
 
 function show(req, res) {
   Set.findById(req.params.id, function(err, set) {
-    console.log(set);
     res.render('sets/show', {title: `The Collabratory | ${set.title}`, set});
   });
 }
