@@ -1,9 +1,11 @@
 const Set = require('../models/set');
+const user = require('../models/user');
 
 module.exports = {
   new: newSet,
   create,
-  show
+  show,
+  edit
 }
 
 function newSet(req, res) {
@@ -21,9 +23,7 @@ function create(req, res) {
   const set = new Set(req.body);
   set.createdBy = req.params._id;
   set.popularity = 1;
-  console.log("set id: ", set._id);
-  req.user.followedSets.push(set._id);
-  console.log(req.user.name + '.followedSets: ', req.user.followedSets);
+  set.followedBy.push(req.user._id);
   req.user.save(function(err){
     set.save(function(err) {
       if (err) return res.redirect('/sets/new');
@@ -36,4 +36,20 @@ function show(req, res) {
   Set.findById(req.params.id, function(err, set) {
     res.render('sets/show', {title: `The Collabratory | ${set.title}`, set});
   });
+}
+
+function edit(req, res) {
+  Set.findById(req.params.id, function(err, set) {
+    if (set.followedBy.includes(req.user._id)) {
+      const index = set.followedBy.indexOf(req.user._id);
+      if (index > -1) {
+        set.followedBy.splice(index, 1);
+      }
+    } else {
+      set.followedBy.push(req.user.id);
+    }
+    set.save(function(err) {
+      res.redirect('/')
+    })
+  }) 
 }

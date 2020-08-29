@@ -1,17 +1,34 @@
 <%- include('./partials/header') %>
 <main>
   
+<button class="rndm">Lab</button><br>
+
 <a href="/sets/new">Add New Set</a>
 
 
-<% if (true) { %>
+<% if (user) { %>
+  <h3>Your sets</h3>
   <ul>
-  <% sets.forEach(set => { %>
+  <% followedSets.forEach(set => { %>
     <li>
-      <a href="/sets/<%= set._id %>"><%= set.title %></a>
+      <a href="/sets/<%= set._id %>"><%= set.title %></a><form action="sets/<%= set._id %>/edit?_method=PUT" method="POST"><input type="submit" value="unfollow"></form>
     </li>
   <% }) %>
   </ul>
+  
+  <h3>Available Sets</h3>
+  <ul>
+    <% unfollowedSets.forEach(set => { %>
+      <li>
+        <a href="/sets/<%= set._id %>"><%= set.title %></a><form action="sets/<%= set._id %>/edit?_method=PUT" method="POST"><input type="submit" value="follow"></form>
+      </li>
+      <% }) %>
+    </ul>
+    
+  <% } %>
+
+<% if (!user) { %>
+ <h3>Not signed in</h3>
 <% } %>
 
 </main>

@@ -8,20 +8,23 @@ const Set = require('../models/set')
 router.get('/', function(req, res, next) {
   // If the user is logged in show their followed sets
   if (req.user) {
-    Set.find({}, function(err, sets) {
-      res.render('index', { 
-        title: 'Homepage for The Collabratory',
-        sets
-      })
-    }) 
+    Set.find({'followedBy': {$in: req.user._id}}, function(err, followedSets) {
+      Set.find({'followedBy': {$nin: req.user._id}}, function(err, unfollowedSets) {
+        res.render('index', { 
+          title: 'Homepage for The Collabratory',
+          followedSets,
+          unfollowedSets
+        });
+      });
+    });
   } else {
     // Otherwise show all sets
-    Set.find({}, function(err, sets) {
+    Set.find({}, function(err, unfollowedSets) {
       res.render('index', { 
         title: 'Homepage for The Collabratory',
-        sets
-      })
-    })  
+        unfollowedSets
+      });
+    });
   }
 });
 
