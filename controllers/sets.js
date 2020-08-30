@@ -5,7 +5,8 @@ module.exports = {
   new: newSet,
   create,
   show,
-  edit
+  edit, 
+  delete: deleteSet
 }
 
 function newSet(req, res) {
@@ -49,7 +50,13 @@ function edit(req, res) {
       set.followedBy.push(req.user.id);
     }
     set.save(function(err) {
-      res.redirect('/')
-    })
+      res.redirect('/');
+    });
   }) 
+}
+
+function deleteSet(req, res) {
+  Set.findByIdAndDelete(req.params.id, function(err, set) {
+    res.redirect('/');
+  });
 }

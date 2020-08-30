@@ -17,14 +17,17 @@
       <input type="submit" value="Add Entry">
     </form>
 
+    <form action="/sets/<%= set._id %>?_method=DELETE" method="POST">
+      <button type="submit">Delete Set</button>
+    </form>
 
-    
     <% } %>
-
     <% set.entries.forEach(entry => { %>
         <h3><%= entry.category %></h3>
         <p><%= entry.description %> </p>
+        <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
     <% }) %>
-
 </main>
 <%- include('../partials/footer') %>

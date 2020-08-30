@@ -8,5 +8,6 @@ router.post('/', setsCtrl.create);
 router.get('/:id', setsCtrl.show);
 router.post('/:id/entries', entriesCtrl.create);
 router.put('/:id/edit', setsCtrl.edit);
+router.delete('/:id', setsCtrl.delete);
 
 module.exports = router;
