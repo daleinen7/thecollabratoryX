@@ -22,7 +22,7 @@ function create(req, res) {
     if (req.body[key] === '') delete req.body[key];
   }
   const set = new Set(req.body);
-  set.createdBy = req.params._id;
+  set.createdBy = req.user._id;
   set.popularity = 1;
   set.followedBy.push(req.user._id);
   req.user.save(function(err){

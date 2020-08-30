@@ -14,7 +14,7 @@ const setSchema = new Schema({
   entries: [entrySchema],
   popularity: Number,
   followedBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}],
-  createdBy: [{type: mongoose.Schema.Types.ObjectId, ref: "User"}]
+  createdBy: String
 }, {
   timestamps: true
 });
