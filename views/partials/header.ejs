@@ -4,8 +4,15 @@
     <title><%= title %></title>
     <link rel='stylesheet' href='/../stylesheets/style.css' />
     <script src="/../javascripts/main.js" defer></script>
+    <script type="text/javascript">
+      let instrument = <% instrument %>
+
+    </script>
   </head>
   <body>
+
+    <p id="myelement1"></p>
+    
     <h1><a href="/"><%= title %></a></h1>
     <% if (user) { %>
       <p>Welcome <%= user.name %></p>
