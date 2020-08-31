@@ -8,27 +8,28 @@ router.get('/', function(req, res, next) {
   // If the user is logged in show their followed sets
   if (req.user) {
     Set.find({'followedBy': {$in: req.user._id}}, function(err, followedSets) {
-      const instrument = [];
-      const effect = [];
-      const role = [];
-      const universal = [];
+      // individual arrays for each category
+      const instruments = [];
+      const effects = [];
+      const roles = [];
+      const universals = [];
       
       for (let i = 0; i < followedSets.length; i++) {
         for (let j = 0; j < followedSets[i].entries.length; j++) {
           ent = followedSets[i].entries[j];
-          
+
           switch (ent.category) {
             case 'instrument':
-              instrument.push(ent.description);
+              instruments.push(ent.description);
               break;
             case 'effect':
-              effect.push(ent.description);
+              effects.push(ent.description);
               break;
             case 'role':
-              role.push(ent.description);
+              roles.push(ent.description);
               break;
             case 'universal': 
-              universal.push(ent.description);
+              universals.push(ent.description);
               break;
             default:
               break;
@@ -36,13 +37,22 @@ router.get('/', function(req, res, next) {
         }
       }
       
+      instrument = instruments[Math.floor(Math.random() * instruments.length)];
+      effect = effects[Math.floor(Math.random() * effects.length)];
+      role = roles[Math.floor(Math.random() * roles.length)];
+      universal = universals[Math.floor(Math.random() * universals.length)];
+
       console.log(instrument);
 
       Set.find({'followedBy': {$nin: req.user._id}}, function(err, unfollowedSets) {
         res.render('index', { 
           title: 'Homepage for The Collabratory',
           followedSets,
-          unfollowedSets
+          unfollowedSets,
+          instrument,
+          effect,
+          role,
+          universal
         });
       });
     });

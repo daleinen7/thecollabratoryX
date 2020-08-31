@@ -4,9 +4,16 @@
   
 <button id="rndm">Lab</button><br>
 
-<a href="/sets/new">Add New Set</a>
 
 <% if (user) { %>
+  
+  <h2><%= effect %> </h2>
+  <h2><%= instrument %> </h2>
+  <h2><%= role %> </h2>
+  <h2><%= universal %> </h2>
+  
+  <a href="/sets/new">Add New Set</a>
+  
   <h3>Your sets</h3>
   <ul>
   <% followedSets.forEach(set => { %>
