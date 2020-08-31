@@ -36,23 +36,16 @@ router.get('/', function(req, res, next) {
           }
         }
       }
-      
-      instrument = instruments[Math.floor(Math.random() * instruments.length)];
-      effect = effects[Math.floor(Math.random() * effects.length)];
-      role = roles[Math.floor(Math.random() * roles.length)];
-      universal = universals[Math.floor(Math.random() * universals.length)];
-
-      console.log(instrument);
 
       Set.find({'followedBy': {$nin: req.user._id}}, function(err, unfollowedSets) {
         res.render('index', { 
           title: 'Homepage for The Collabratory',
           followedSets,
           unfollowedSets,
-          instrument,
-          effect,
-          role,
-          universal
+          instruments,
+          effects,
+          roles,
+          universals
         });
       });
     });

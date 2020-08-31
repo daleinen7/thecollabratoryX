@@ -6,13 +6,12 @@
   <input type="submit" value="Collabratoriate">
 </form>
 
-
 <% if (user) { %>
-  
-  <h2><%= effect %> </h2>
-  <h2><%= instrument %> </h2>
-  <h2><%= role %> </h2>
-  <h2><%= universal %> </h2>
+  <h2>Results</h2>
+  <h3 id="effect"></h3>
+  <h3 id="instrument"></h3>
+  <h3 id="role"></h3>
+  <h3 id="universal"></h3>
   
   <a href="/sets/new">Add New Set</a>
   
@@ -48,4 +47,24 @@
 <% } %>
 
 </main>
+
+<% if (user) { %>
+  <script>
+    const instruments =  <%- JSON.stringify(instruments) %>;
+    const effects =  <%- JSON.stringify(effects) %>;
+    const roles =  <%- JSON.stringify(roles) %>;
+    const universals =  <%- JSON.stringify(universals) %>;
+
+    let instrument = instruments[Math.floor(Math.random() * instruments.length)];
+    let effect = effects[Math.floor(Math.random() * effects.length)];
+    let role = roles[Math.floor(Math.random() * roles.length)];
+    let universal = universals[Math.floor(Math.random() * universals.length)];
+
+    document.getElementById('effect').innerText = effect;
+    document.getElementById('instrument').innerText = instrument;
+    document.getElementById('role').innerText = role;
+    document.getElementById('universal').innerText = universal;
+  </script>
+<% } %>
+
 <%- include('./partials/footer') %>
