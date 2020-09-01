@@ -3,7 +3,8 @@ const Set = require('../models/set');
 module.exports = {
   create,
   deleteEntry,
-  edit
+  edit,
+  update
 }
 
 function create(req, res) {
@@ -33,4 +34,16 @@ function edit(req, res) {
     console.log('why for? but ..');
     res.render('entries/edit', {title: 'The Collabratory | Edit Entry', entry, set});
   })
+}
+
+function update(req, res) {
+  Set.findOne({'entries._id': req.params.id}, function(err, set) {
+    const entry = set.entries.id(req.params.id);
+    if(!set.createdBy.equals(req.user._id)) return res.redirect(`/sets/${set._id}`);
+    entry.category = req.body.category;
+    entry.description = req.body.description;
+    set.save(function(err) {
+      res.redirect(`/sets/${set._id}`);
+    });
+  });
 }

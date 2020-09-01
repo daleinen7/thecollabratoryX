@@ -4,6 +4,7 @@ const entriesCtrl = require('../controllers/entries');
 
 router.delete('/:id', isLoggedIn, entriesCtrl.deleteEntry);
 router.get('/:id/edit', isLoggedIn, entriesCtrl.edit);
+router.put('/:id', entriesCtrl.update)
 
 module.exports = router;
 
