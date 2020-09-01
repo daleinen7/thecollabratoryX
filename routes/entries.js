@@ -3,6 +3,7 @@ const router = express.Router();
 const entriesCtrl = require('../controllers/entries');
 
 router.delete('/:id', isLoggedIn, entriesCtrl.deleteEntry);
+router.get('/:id/edit', isLoggedIn, entriesCtrl.edit);
 
 module.exports = router;
 

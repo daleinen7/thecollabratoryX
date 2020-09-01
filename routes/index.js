@@ -52,9 +52,42 @@ router.get('/', function(req, res, next) {
   } else {
     // Otherwise show all sets
     Set.find({}, function(err, unfollowedSets) {
+
+      const instruments = [];
+      const effects = [];
+      const roles = [];
+      const universals = [];
+      
+      for (let i = 0; i < unfollowedSets.length; i++) {
+        for (let j = 0; j < unfollowedSets[i].entries.length; j++) {
+          ent = unfollowedSets[i].entries[j];
+
+          switch (ent.category) {
+            case 'instrument':
+              instruments.push(ent.description);
+              break;
+            case 'effect':
+              effects.push(ent.description);
+              break;
+            case 'role':
+              roles.push(ent.description);
+              break;
+            case 'universal': 
+              universals.push(ent.description);
+              break;
+            default:
+              break;
+          }
+        }
+      }
+
       res.render('index', { 
         title: 'Homepage for The Collabratory',
-        unfollowedSets
+        unfollowedSets,
+        instruments,
+        effects,
+        roles,
+        universals
       });
     });
   }

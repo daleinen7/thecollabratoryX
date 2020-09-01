@@ -2,7 +2,7 @@
 <main>
   <form action="/sets/<%= set._id %>/entries" method="post">
     <h2><%= set.title %></h2>
-    <% if (user && set.createdBy === user.id) { %>
+    <% if (set.createdBy.equals(user && user._id)) { %>
     <label>Category
       <select name="category">
         <option value="instrument">Instrument</option>
@@ -11,8 +11,8 @@
         <option value="universal">Universal</option>
       </select>
     </label>
-    <label>
-      <textarea name="description" id="" cols="30" rows="4"></textarea>
+    <label>Description
+      <input type="text" name="description">
     </label>
     <input type="submit" value="Add Entry">
   </form>
@@ -25,7 +25,8 @@
   <% set.entries.forEach(entry => { %>
       <h3><%= entry.category %></h3>
       <p><%= entry.description %> </p>
-      <% if (user && set.createdBy === user.id) { %>
+      <% if (set.createdBy.equals(user && user._id)) { %>
+      <a href="/entries/<%= entry._id %>/edit">edit</a>
       <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
         <button type="submit">X</button>
       </form>

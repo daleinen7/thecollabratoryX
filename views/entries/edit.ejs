@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<main>
+  <form action="/entries/<%= entry._id %>?_method=PUT" method="post">
+    <% if (user && set.createdBy == user.id) { %>
+    <label>Category
+      <select name="category">
+        <option value="instrument"<% if (entry.category === 'instrument') { %>selected="selected"<% } %>>instrument</option>
+        <option value="effects"<% if (entry.category === 'effects') { %>selected="selected"<% } %>>effects</option>
+        <option value="role"<% if (entry.category === 'role') { %>selected="selected"<% } %>>role</option>
+        <option value="universal"<% if (entry.category === 'universal') { %>selected="selected"<% } %>>universal</option>
+      </select>
+    </label>
+    <label>Description
+      <input type="text" name="description" value="<%= entry.description  %>">
+    </label>
+    <input type="submit" value="Add Entry">
+  </form>
+<% } else { %>
+  <h3>You didn't make this and you shouldn't be here.</h3> 
+<% } %> 
+</main>
+<%- include('../partials/footer') %>
