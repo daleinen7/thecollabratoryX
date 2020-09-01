@@ -2,17 +2,16 @@
 
 <main>
   
-<form action="/" method="get">
-  <input type="submit" value="Collabratoriate">
-</form>
+  <button id="collabritoriate">Collabratoriate</button>
 
 <% if (user) { %>
   <h2>Results</h2>
-    <h3><span id="effect"></span><span id="instrument"></span><span id="role"></span><span id="universal"></span>
-  </h3>
+
+  <ul id="list">
+
+  </ul>
   
-  <!-- <a href="/sets/new">Add New Set</a> -->
-  <button id="collabritoriate">Collabratoriate</button>
+  <a href="/sets/new">Add New Set</a>
 
   <h3>Your sets</h3>
   <ul>
@@ -61,29 +60,37 @@
 
   clbrtry()
 
+
+
   function clbrtry() {
     let instrument = instruments[Math.floor(Math.random() * instruments.length)];
     let effect = effects[Math.floor(Math.random() * effects.length)];
     let role = roles[Math.floor(Math.random() * roles.length)];
     let universal = universals[Math.floor(Math.random() * universals.length)];
-
-
     
+    let content = "";
+
+    let parent = document.getElementById('list');
+
     if (typeof effect !== 'undefined') {
-      document.getElementById('effect').innerText = effect;
+      content+= effect + ' ';
     }
     
     if (typeof instrument !== 'undefined') {
-      document.getElementById('instrument').innerText = instrument;
+      content+= instrument;
     }
     
     if (typeof role !== 'undefined') {
-      document.getElementById('role').innerText = role;
+      content+= ' ' + role;
     }
     
     if (typeof universal !== 'undefined') {
-      document.getElementById('universals').innerText = universals;
+      content = universal;
     }
+
+    let listing = document.createElement('li');
+    listing.innerText = content;
+    parent.appendChild(listing);
   }
 
 </script>
