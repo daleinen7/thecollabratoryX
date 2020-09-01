@@ -11,8 +11,9 @@
     <h3><span id="effect"></span><span id="instrument"></span><span id="role"></span><span id="universal"></span>
   </h3>
   
-  <a href="/sets/new">Add New Set</a>
-  
+  <!-- <a href="/sets/new">Add New Set</a> -->
+  <button id="collabritoriate">Collabratoriate</button>
+
   <h3>Your sets</h3>
   <ul>
   <% followedSets.forEach(set => { %>
@@ -49,30 +50,40 @@
 
 <script>
 
+  const btn = document.getElementById('collabritoriate');
+
+  btn.addEventListener('click', clbrtry)
+
   const instruments =  <%- JSON.stringify(instruments) %>;
   const effects =  <%- JSON.stringify(effects) %>;
   const roles =  <%- JSON.stringify(roles) %>;
   const universals =  <%- JSON.stringify(universals) %>;
 
-  let instrument = instruments[Math.floor(Math.random() * instruments.length)];
-  let effect = effects[Math.floor(Math.random() * effects.length)];
-  let role = roles[Math.floor(Math.random() * roles.length)];
-  let universal = universals[Math.floor(Math.random() * universals.length)];
-  console.log(effect);
-  if (typeof effect !== 'undefined') {
-    document.getElementById('effect').innerText = effect;
-  }
-  
-  if (typeof instrument !== 'undefined') {
-    document.getElementById('instrument').innerText = instrument;
-  }
-  
-  if (typeof role !== 'undefined') {
-    document.getElementById('role').innerText = role;
-  }
-  
-  if (typeof universals !== 'undefined') {
-    document.getElementById('universals').innerText = universals;
+  clbrtry()
+
+  function clbrtry() {
+    let instrument = instruments[Math.floor(Math.random() * instruments.length)];
+    let effect = effects[Math.floor(Math.random() * effects.length)];
+    let role = roles[Math.floor(Math.random() * roles.length)];
+    let universal = universals[Math.floor(Math.random() * universals.length)];
+
+
+    
+    if (typeof effect !== 'undefined') {
+      document.getElementById('effect').innerText = effect;
+    }
+    
+    if (typeof instrument !== 'undefined') {
+      document.getElementById('instrument').innerText = instrument;
+    }
+    
+    if (typeof role !== 'undefined') {
+      document.getElementById('role').innerText = role;
+    }
+    
+    if (typeof universal !== 'undefined') {
+      document.getElementById('universals').innerText = universals;
+    }
   }
 
 </script>
