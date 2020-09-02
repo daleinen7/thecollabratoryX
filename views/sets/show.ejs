@@ -24,7 +24,12 @@
   <% } %>
   <div id="entry-list">
     <% set.entries.forEach(entry => { %>
-      <div class="entry">
+      <div class="entry
+        <% if (entry.category === 'instrument') { %> inst-ent<% } %>
+        <% if (entry.category === 'effect') { %> fx-ent<% } %>
+         <% if (entry.category === 'role') { %> role-ent<% } %>
+         <% if (entry.category === 'universal') { %>uni-ent<% } %>
+         ">
         <h3><%= entry.category %></h3>
         <p><%= entry.description %> </p>
         <% if (set.createdBy.equals(user && user._id)) { %>

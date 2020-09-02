@@ -115,9 +115,9 @@ main {
   border: 1px solid #c65d24;
   border-radius: 3px;
   background-color: #d2baad;
-  padding: 4px 10px;
+  padding: 7px 20px;
   text-decoration: none;
-  margin: 3px;
+  margin: 6px;
 }
 
 .set-item a:hover {
@@ -175,5 +175,21 @@ main {
 
 .edit-btn:hover {
   color: #792d04;
-  background-color: #d3a58c;
+  background-color: #d3a58c95;
+}
+
+.inst-ent {
+  background-color: rgba(127, 134, 205, 0.495);
+}
+
+.fx-ent {
+  background-color: rgba(6, 216, 6, 0.495);
+}
+
+.role-ent {
+  background: rgba(220, 155, 114, 0.482);
+}
+
+.uni-ent {
+  background: rgba(228, 228, 106, 0.482);
 }

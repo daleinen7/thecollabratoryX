@@ -13,7 +13,8 @@ function newSet(req, res) {
   res.render('sets/new', {
     title: 'The Collabratory | Add Set',
     user: req.user,
-    name: req.query.name
+    name: req.query.name,
+    test: true
   });
 }
 
