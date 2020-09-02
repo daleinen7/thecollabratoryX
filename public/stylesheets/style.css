@@ -218,3 +218,25 @@ main {
 .uni-ent {
   background: rgba(228, 228, 106, 0.482);
 }
+
+.new-set-form {
+  padding: 5px;  
+}
+
+input[type="text" i] {
+  padding: 5px;
+  color: rgb(24, 48, 165);
+  font-weight: bold;
+  border: 2px solid rgb(24, 48, 165);
+  border-radius: 6px;
+}
+
+input[type="submit" i] {
+  color:rgb(24, 48, 165);
+  background-color: rgb(174, 187, 203);
+  border-radius: 10px;
+}
+
+.menu {
+  margin-bottom: 20px;
+}

@@ -17,8 +17,8 @@
     <input type="submit" value="Add Entry">
   </form>
 
-  <form action="/sets/<%= set._id %>?_method=DELETE" method="POST">
-    <button type="submit">Delete Set</button>
+  <form action="/sets/<%= set._id %>?_method=DELETE" method="POST" class="menu">
+    <button type="submit" class="delete-btn">Delete Set</button>
   </form>
 
   <% } %>

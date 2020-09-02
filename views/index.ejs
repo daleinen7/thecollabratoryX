@@ -89,7 +89,7 @@
     if (content !== "") {
       let listing = document.createElement('li');
       listing.innerHTML = content;
-      parent.appendChild(listing);
+      parent.prepend(listing);
     } else {
       parent.innerHTML = '<p>Follow sets to see the collabratory output your next inspiration</p>';
     }
