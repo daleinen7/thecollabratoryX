@@ -22,15 +22,19 @@
   </form>
 
   <% } %>
-  <% set.entries.forEach(entry => { %>
-      <h3><%= entry.category %></h3>
-      <p><%= entry.description %> </p>
-      <% if (set.createdBy.equals(user && user._id)) { %>
-      <a href="/entries/<%= entry._id %>/edit">edit</a>
-      <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
-        <button type="submit">X</button>
-      </form>
-    <% } %> 
-  <% }) %>
+  <div id="entry-list">
+    <% set.entries.forEach(entry => { %>
+      <div class="entry">
+        <h3><%= entry.category %></h3>
+        <p><%= entry.description %> </p>
+        <% if (set.createdBy.equals(user && user._id)) { %>
+        <a href="/entries/<%= entry._id %>/edit">edit</a>
+        <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
+          <button type="submit">X</button>
+        </form>
+        <% } %>
+      </div>
+    <% }) %>
+  </div>
 </main>
 <%- include('../partials/footer') %>

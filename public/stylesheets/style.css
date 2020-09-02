@@ -106,3 +106,18 @@ main {
   height: 14em;
   width: 7em
 }
+
+#entry-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.entry {
+  padding: 4px 10px 4px 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  text-align: center;
+  margin: 8px;
+  width: 260px;
+  flex-grow: 1;
+}
