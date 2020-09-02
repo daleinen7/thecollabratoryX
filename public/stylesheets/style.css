@@ -8,13 +8,18 @@ ul {
 }
 
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-family: 'Work Sans', sans-serif;
   color: rgb(3, 5, 12);
 }
 
 a {
   color: #c65d24;
+}
+
+nav {
+  width: 95%;
+  margin: 0 auto;
 }
 
 nav ul {
@@ -29,7 +34,8 @@ ul li {
   font-size: 3em;
   text-decoration: none;
   color: rgb(3, 5, 12);
-  word-spacing: -1em;;
+  word-spacing: -1em;
+  margin-top: -10px;
 }
 
 .logo .first-letter {
@@ -101,8 +107,27 @@ main {
 }
 
 #collabritoriate {
-  height: 14em;
-  width: 7em
+  background-color: rgb(24, 48, 165);
+  background-image: url('/../images/just-image.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-weight: bold;
+  font-size: 3em;
+  outline: none;
+  border: 3px solid rgb(24, 28, 153);
+  border-radius: 20px;
+  color: white;
+  height: 200px;
+  width: 50%;
+}
+
+#collabritoriate:active {
+  outline: none;
+}
+
+#collabritoriate:hover {
+  background-color: rgb(20, 69, 191);
 }
 
 .set-item {

@@ -2,7 +2,7 @@
 
 <main>
   
-  <button id="collabritoriate">Col lab ratory</button>
+  <button id="collabritoriate">Press to use the collabratory</button>
 
 <% if (user) { %>
 
@@ -36,7 +36,7 @@
   <h5><span class="fl">s</span>ign in to filter only the sets you want to use</h5>
  <ul>
   <% unfollowedSets.forEach(set => { %>
-  <li>
+  <li class="set-item">
     <a href="/sets/<%= set._id %>"><%= set.title %></a>
   </li>
   <% }) %>

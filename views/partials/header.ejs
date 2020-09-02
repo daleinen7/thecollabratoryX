@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='/../stylesheets/style.css' />
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
@@ -11,10 +12,9 @@
     <nav>
       <ul>
         <div class="misc-nav">
-          <li><a href="/" class="logo"><span class="small-the">the</span> <span class="fl">c</span>ollabratory</a></li>
-          
+          <!-- <li><a href="/" class="logo"><span class="small-the">the</span> <span class="fl">c</span>ollabratory</a></li> -->
+          <li><a href="/" class="logo"><img src="/../images/logo.png" width="360" alt="the Collabratory logo"></a></li>
         </div>
-
         <div class="login">
           <% if (user) { %>
             <li><a href="/logout">Log Out</a></li>
@@ -23,7 +23,10 @@
           <% } %>
         </div>
       </ul>
-      <% if (user) { %>
+      <% if (user && title != 'The Collabratory | Add Set') { %>
         <li><a href="/sets/new" class="add-set">Add New Set</a></li>
+      <% } %>
+      <% if (title == 'The Collabratory | Add Set') { %>
+        <li><a href="/" class="add-set">Back to Main</a></li>
       <% } %>
     </nav>
