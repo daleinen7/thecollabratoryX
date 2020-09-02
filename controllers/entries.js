@@ -9,7 +9,10 @@ module.exports = {
 
 function create(req, res) {
   Set.findById(req.params.id, function(err, set) {
-    set.entries.push(req.body);
+    const entry = req.body;
+    entry.description = entry.description.trim();
+
+    set.entries.push(entry);
     set.save(function(err) {
       res.redirect(`/sets/${set._id}`);
     });

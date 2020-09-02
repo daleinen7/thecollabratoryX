@@ -18,6 +18,7 @@ function newSet(req, res) {
 }
 
 function create(req, res) {
+  // if empty string delete it
   for (let key in req.body) {
     if (req.body[key] === '') delete req.body[key];
   }

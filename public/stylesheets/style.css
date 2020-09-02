@@ -5,6 +5,10 @@ html {
   background-image: url('../images/seamless_paper_texture.png');
 }
 
+ul {
+  padding: 0;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -19,8 +23,28 @@ nav ul {
   display: flex;
 }
 
+ul li {
+  list-style-type: none;
+}
+
+.logo {
+  font-size: 3em;
+  text-decoration: none;
+  color: rgb(3, 5, 12);
+  word-spacing: -1em;;
+}
+
+.logo .first-letter {
+  font-size: 1.2em;
+}
+
+.small-the {
+  font-size: 0.7em;
+}
+
 .misc-nav {
   display: flex;
+  align-items: baseline;
   justify-content: flex-start;
   align-self: flex-start;
 }
@@ -29,10 +53,56 @@ nav ul {
   margin-right: 1em;
 }
 
+.add-set {
+  border: 1px solid #c65d24;
+  border-radius: 3px;
+  background-color: #d2baad;
+  padding: 4px 7px;
+  text-decoration: none;
+}
+
+.add-set:hover {
+  color: #d75510;
+  background-color: #d3a58c;
+}
+
 .login {
   margin-left: auto;
 }
 
 nav li {
   list-style-type: none;
+}
+
+h1 {
+  color: rgb(19, 35, 113);
+}
+
+main {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+#list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#list li {
+  margin: 1em 0;
+  text-align: center;
+}
+
+.fl {
+  color: rgb(24, 48, 165);
+}
+
+#collabritoriate {
+  height: 14em;
+  width: 7em
 }
