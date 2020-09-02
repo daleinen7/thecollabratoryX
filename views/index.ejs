@@ -86,9 +86,13 @@
       content = universal;
     }
 
-    let listing = document.createElement('li');
-    listing.innerHTML = content;
-    parent.appendChild(listing);
+    if (content !== "") {
+      let listing = document.createElement('li');
+      listing.innerHTML = content;
+      parent.appendChild(listing);
+    } else {
+      parent.innerHTML = '<p>Follow sets to see the collabratory output your next inspiration</p>';
+    }
   }
 
 </script>

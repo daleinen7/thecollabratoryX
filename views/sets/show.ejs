@@ -28,10 +28,13 @@
         <h3><%= entry.category %></h3>
         <p><%= entry.description %> </p>
         <% if (set.createdBy.equals(user && user._id)) { %>
-        <a href="/entries/<%= entry._id %>/edit">edit</a>
-        <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
-          <button type="submit">X</button>
-        </form>
+
+        <div class="user-entry-options">
+          <a href="/entries/<%= entry._id %>/edit" class="edit-btn">edit</a>
+          <form action="/entries/<%= entry._id %>?_method=DELETE" method="POST">
+           <button type="submit" class="delete-btn">X</button>
+          </form>
+      </div>
         <% } %>
       </div>
     <% }) %>

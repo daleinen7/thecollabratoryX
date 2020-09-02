@@ -34,7 +34,6 @@ function edit(req, res) {
     // if the user did not create this entry then return back to the set
     if (!set.createdBy.equals(req.user._id)) return res.redirect(`/sets/${set._id}`);
     const entry = set.entries.id(req.params.id);
-    console.log('why for? but ..');
     res.render('entries/edit', {title: 'The Collabratory | Edit Entry', entry, set});
   })
 }
