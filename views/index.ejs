@@ -11,20 +11,20 @@
   </ul>
 
   <h3>Your sets</h3>
-  <% if (user && title != 'The Collabratory | Add Set') { %>
-    <a href="/sets/new" class="add-set">Add New Set</a>
-  <% } %>
   <% if (title == 'The Collabratory | Add Set') { %>
     <a href="/" class="add-set">Back to Main</a>
-  <% } %>
-  <ul>
-  <% followedSets.forEach(set => { %>
-    <li class="set-item">
-      <a href="/sets/<%= set._id %>"><%= set.title %></a><form action="sets/<%= set._id %>/edit?_method=PUT" method="POST"><input type="submit" value="unfollow"></form>
-    </li>
-  <% }) %>
-  </ul>
-  
+    <% } %>
+    <ul>
+    <% followedSets.forEach(set => { %>
+      <li class="set-item">
+        <a href="/sets/<%= set._id %>"><%= set.title %></a><form action="sets/<%= set._id %>/edit?_method=PUT" method="POST"><input type="submit" value="unfollow"></form>
+      </li>
+      <% }) %>
+    </ul>
+      
+    <% if (user && title != 'The Collabratory | Add Set') { %>
+      <a href="/sets/new" class="add-set">Add New Set</a>
+    <% } %>
   <h3>Available Sets</h3>
   <ul>
     <% unfollowedSets.forEach(set => { %>

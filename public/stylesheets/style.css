@@ -1,11 +1,16 @@
 :root {
   --blue: #2E3192;
+  --light-blue: #5160a2;
   --black: #23201F;
-  --slate: #5e686b;
+  --white: #DCDFE2;
+  --neutral: #b1c3c9;
+  --nav-border: #c65d24;
+  --nav-bg: #d8ab6f;
+  --delete: rgb(138, 50, 56);
 }
 
 html {
-  background-color: #E5E1D9;
+  background-color: var(--white);
   background-image: url('../images/seamless_paper_texture.png');
 }
 
@@ -16,11 +21,7 @@ ul {
 body {
   font-size: 16px;
   font-family: 'Work Sans', sans-serif;
-  color: rgb(3, 5, 12);
-}s
-
-a {
-  color: #c65d24;
+  color: var(--black);
 }
 
 .logo {
@@ -33,11 +34,12 @@ ul li {
 }
 
 .add-set {
-  border: 1px solid #c65d24;
+  border: 1px solid var(--nav-border);
   border-radius: 20px;
-  background-color: #d2baad;
+  background-color: var(--nav-bg);
   padding: 4px 7px;
   text-decoration: none;
+  color: var(--light-blue);
 }
 
 .add-set:hover {
@@ -56,7 +58,7 @@ nav li {
 }
 
 h1 {
-  color: rgb(19, 35, 113);
+  color: var(--blue);
 }
 
 main {
@@ -65,7 +67,6 @@ main {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-
 }
 
 #list {
@@ -80,11 +81,11 @@ main {
 }
 
 .fl {
-  color: rgb(24, 48, 165);
+  color: var(--blue);
 }
 
 #collabritoriate {
-  background-color: rgb(24, 48, 165);
+  background-color: var(--blue);
   background-image: url('/../images/just-image.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -94,7 +95,7 @@ main {
   outline: none;
   border: 3px solid rgb(24, 28, 153);
   border-radius: 20px;
-  color: white;
+  color: var(--white);
   height: 200px;
   width: 50%;
 }
@@ -104,7 +105,7 @@ main {
 }
 
 #collabritoriate:hover {
-  background-color: rgb(20, 69, 191);
+  background-color: var(--light-blue);
 }
 
 .set-item {
@@ -114,12 +115,13 @@ main {
 }
 
 .set-item a {
-  border: 1px solid #c65d24;
+  border: 1px solid var(--nav-border);
   border-radius: 3px;
-  background-color: #d2baad;
+  background-color: var(--nav-bg);
   padding: 7px 20px;
   text-decoration: none;
   margin: 6px;
+  color: var(--light-blue);
 }
 
 .set-item a:hover {
@@ -128,8 +130,8 @@ main {
 }
 
 .set-item input {
-  color:rgb(24, 48, 165);
-  background-color: rgb(174, 187, 203);
+  color: var(--blue);
+  background-color: var(--white);
   border-radius: 10px;
 }
 
@@ -140,12 +142,52 @@ main {
 
 .entry {
   padding: 4px 10px 4px 10px;
-  border: 1px solid gray;
   border-radius: 4px;
   text-align: center;
   margin: 8px;
   width: 260px;
   flex-grow: 1;
+  background-color: var(--white);
+}
+
+.inst-ent {
+  border: 1px dotted var(--delete);
+}
+
+.inst-ent h3 {
+  color: var(--delete);
+}
+
+.fx-ent {
+  border: 1px dotted var(--light-blue);
+}
+
+.fx-ent h3 {
+  color: var(--light-blue);
+}
+
+.role-ent {
+  border: 1px dotted var(--nav-border);
+}
+
+.role-ent h3 {
+  color: var(--nav-border);
+}
+
+.uni-ent {
+  border: 1px dotted var(--nav-bg);
+}
+
+.uni-ent  {
+  color: var(--nav-bg);
+}
+
+.entry p {
+  color: var(--black);
+}
+
+.entry p::first-letter{
+  color: var(--blue);
 }
 
 .user-entry-options {
@@ -158,42 +200,27 @@ main {
   border: 1px solid rgb(176, 48, 48);
   border-radius: 50px;
   color: #d2baad;
-  background-color: rgb(138, 50, 56);
+  background-color: var(--delete);
 }
 
 .delete-btn:hover {
   background-color: rgb(106, 19, 25);
-  color: rgb(213, 212, 212);
+  color: var(--white);
   cursor: pointer;
 }
 
 .edit-btn {
-  border: 1px solid #c65d24;
+  border: 1px solid var(--nav-border);
   border-radius: 3px;
-  background-color: #d2baad;
+  background-color: var(--nav-bg);
   padding: 0px 7px;
   text-decoration: none;
+  color: var(--black);
 }
 
 .edit-btn:hover {
   color: #792d04;
   background-color: #d3a58c95;
-}
-
-.inst-ent {
-  background-color: rgba(127, 134, 205, 0.495);
-}
-
-.fx-ent {
-  background-color: rgba(6, 216, 6, 0.495);
-}
-
-.role-ent {
-  background: rgba(220, 155, 114, 0.482);
-}
-
-.uni-ent {
-  background: rgba(228, 228, 106, 0.482);
 }
 
 .new-set-form {
