@@ -64,6 +64,8 @@
 
   
   function clbrtry() {
+    let totalCount = instruments.length + effects.length + roles.length + universals.length;
+
     let instrument = instruments[Math.floor(Math.random() * instruments.length)];
     let effect = effects[Math.floor(Math.random() * effects.length)];
     let role = roles[Math.floor(Math.random() * roles.length)];
@@ -86,11 +88,14 @@
       role = '<span class="fl">' + role.slice(0, 1) + "</span>" + role.slice(1, role.length);
       content+= ' ' + role;
     }
-    
-    if (typeof universal !== 'undefined') {
+    console.log(totalCount, universals.length);
+    // if there are universal entries AND random number between total number of entries is less than or equal to number of universal entries
+    if (typeof universal !== 'undefined' && Math.ceil(Math.random() * totalCount <= universals.length)) {
       universal = '<span class="fl">' + universal.slice(0, 1) + "</span>" + universal.slice(1, universal.length);
+
       content = universal;
     }
+
 
     if (content !== "") {
       let listing = document.createElement('li');
