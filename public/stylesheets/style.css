@@ -3,7 +3,7 @@
   --light-blue: #5160a2;
   --black: #23201F;
   --white: #DCDFE2;
-  --neutral: #b1c3c9;
+  --neutral: #96aab1;
   --nav-border: #c65d24;
   --nav-bg: #d8ab6f;
   --delete: rgb(138, 50, 56);
@@ -95,7 +95,7 @@ main {
   font-size: 3em;
   outline: none;
   border: 3px solid rgb(24, 28, 153);
-  border-radius: 20px;
+  border-radius: 4px;
   color: var(--white);
   height: 200px;
   width: 50%;
@@ -107,6 +107,11 @@ main {
 
 #collabritoriate:hover {
   background-color: var(--light-blue);
+}
+
+#notice {
+  font-style: italic;
+  color: var(--neutral);
 }
 
 .set-item {

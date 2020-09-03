@@ -7,7 +7,7 @@
 <% if (user) { %>
 
   <ul id="list">
-
+    <p id="notice">Click the above button to receive instructions on how to proceed with the next element of your song.</p>
   </ul>
 
   <h3>Your sets</h3>
@@ -55,6 +55,8 @@
 
   const btn = document.getElementById('collabritoriate');
 
+  const notice = document.getElementById('notice');
+
   btn.addEventListener('click', clbrtry)
 
   const instruments =  <%- JSON.stringify(instruments) %>;
@@ -64,6 +66,9 @@
 
   
   function clbrtry() {
+
+    notice.remove();
+
     let totalCount = instruments.length + effects.length + roles.length + universals.length;
 
     let instrument = instruments[Math.floor(Math.random() * instruments.length)];
