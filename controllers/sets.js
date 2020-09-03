@@ -59,6 +59,7 @@ function edit(req, res) {
 
 function deleteSet(req, res) {
   Set.findByIdAndDelete(req.params.id, function(err, set) {
+    if(!set.createdBy.equals(req.user._id)) return res.redirect(`/sets/${set._id}`);
     res.redirect('/');
   });
 }
