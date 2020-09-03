@@ -39,7 +39,7 @@ router.get('/', function(req, res, next) {
 
       Set.find({'followedBy': {$nin: req.user._id}}, function(err, unfollowedSets) {
         res.render('index', { 
-          title: 'Homepage for The Collabratory',
+          title: 'the Collabratory',
           followedSets,
           unfollowedSets,
           instruments,
@@ -82,7 +82,7 @@ router.get('/', function(req, res, next) {
       }
 
       res.render('index', { 
-        title: 'Homepage for The Collabratory',
+        title: 'the Collabratory',
         unfollowedSets,
         instruments,
         effects,
