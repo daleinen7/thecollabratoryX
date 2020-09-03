@@ -9,24 +9,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
   </head>
   <body>
-    <nav>
-      <ul>
-        <div class="misc-nav">
-          <!-- <li><a href="/" class="logo"><span class="small-the">the</span> <span class="fl">c</span>ollabratory</a></li> -->
-          <li><a href="/" class="logo"><img src="/../images/logo.png" width="360" alt="the Collabratory logo"></a></li>
-        </div>
-        <div class="login">
-          <% if (user) { %>
-            <li><a href="/logout">Log Out</a></li>
-          <% } else { %>
-            <li><a href="/auth/google">Login with Google</a></li>
-          <% } %>
-        </div>
-      </ul>
-      <% if (user && title != 'The Collabratory | Add Set') { %>
-        <li><a href="/sets/new" class="add-set">Add New Set</a></li>
+    <div class="logo">
+      <a href="/"><img src="/../images/logo.png" width="360" alt="the Collabratory logo"></a>
+
+    </div>
+    <div class="login">
+      <% if (user) { %>
+        <a href="/logout">Log Out</a>
+      <% } else { %>
+        <a href="/auth/google">Login with Google</a>
       <% } %>
-      <% if (title == 'The Collabratory | Add Set') { %>
-        <li><a href="/" class="add-set">Back to Main</a></li>
-      <% } %>
-    </nav>
+    </div>

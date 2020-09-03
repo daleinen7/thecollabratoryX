@@ -11,6 +11,12 @@
   </ul>
 
   <h3>Your sets</h3>
+  <% if (user && title != 'The Collabratory | Add Set') { %>
+    <a href="/sets/new" class="add-set">Add New Set</a>
+  <% } %>
+  <% if (title == 'The Collabratory | Add Set') { %>
+    <a href="/" class="add-set">Back to Main</a>
+  <% } %>
   <ul>
   <% followedSets.forEach(set => { %>
     <li class="set-item">

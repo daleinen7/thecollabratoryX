@@ -2,8 +2,9 @@
 <main>
   <form action="/sets/<%= set._id %>/entries" method="post">
     <h2><%= set.title %></h2>
+
     <% if (set.createdBy.equals(user && user._id)) { %>
-    <label>Category
+    <label data-tooltip="Add entries to this theme here. Effects are passive modifiers that will go before an instrument. An instrument is obviously what produces the sound. And role describes the intent the performer should have. Universal is a special entry that will appear on it's own without any other entries.">Category
       <select name="category">
         <option value="instrument">Instrument</option>
         <option value="effect">Effect</option>

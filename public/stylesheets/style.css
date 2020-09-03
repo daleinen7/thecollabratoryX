@@ -1,3 +1,7 @@
+:root {
+  --blue: #2E3192;
+}
+
 html {
   background-color: #E5E1D9;
   background-image: url('../images/seamless_paper_texture.png');
@@ -11,55 +15,24 @@ body {
   font-size: 16px;
   font-family: 'Work Sans', sans-serif;
   color: rgb(3, 5, 12);
-}
+}s
 
 a {
   color: #c65d24;
 }
 
-nav {
-  width: 95%;
+.logo {
   margin: 0 auto;
-}
-
-nav ul {
-  display: flex;
+  text-align: center;
 }
 
 ul li {
   list-style-type: none;
 }
 
-.logo {
-  font-size: 3em;
-  text-decoration: none;
-  color: rgb(3, 5, 12);
-  word-spacing: -1em;
-  margin-top: -10px;
-}
-
-.logo .first-letter {
-  font-size: 1.2em;
-}
-
-.small-the {
-  font-size: 0.7em;
-}
-
-.misc-nav {
-  display: flex;
-  align-items: baseline;
-  justify-content: flex-start;
-  align-self: flex-start;
-}
-
-.misc-nav li {
-  margin-right: 1em;
-}
-
 .add-set {
   border: 1px solid #c65d24;
-  border-radius: 3px;
+  border-radius: 20px;
   background-color: #d2baad;
   padding: 4px 7px;
   text-decoration: none;
@@ -71,7 +44,9 @@ ul li {
 }
 
 .login {
-  margin-left: auto;
+  position: absolute;
+  right: 1em;
+  top: 1em;
 }
 
 nav li {
@@ -239,4 +214,67 @@ input[type="submit" i] {
 
 .menu {
   margin-bottom: 20px;
+}
+
+/* TOOL TIP LOGIC */
+[data-tooltip] {
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* Hide the tooltip content by default */
+[data-tooltip]:before,
+[data-tooltip]:after {
+  visibility: hidden;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Position tooltip above the element */
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
 }
