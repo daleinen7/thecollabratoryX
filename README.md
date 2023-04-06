@@ -1,4 +1,5 @@
 # The Collabratory
+NOTE THIS APP IS NO LONGER FUNCTIONING DUE TO RELIANCE ON HEROKU FREE TIER DISCONTINUATION
 ![alt text](https://i.imgur.com/JM2oeWy.png "Homepage Screenshot")
 
 A tool for musicians to re-think how they approach songwriting/recording. Or a general source for inspiration. 
